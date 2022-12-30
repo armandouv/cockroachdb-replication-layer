@@ -51,7 +51,7 @@ of them are:
 
 - We don't implement expiration in Leases nor a Lease acquire mechanism, for which Raft is used.
 - We don't have a distributed range descriptor table. Instead, we just pass a copy of the complete table to each node,
-  using a std::map which is a balanced-search tree. This helps make fast lookups of ranges (O (log n).
+  using a std::map which is a balanced-search tree. This helps make fast lookups of ranges (O (log n)).
 - The leaseholder and leader of a Range are determined manually here. In practice, this is done using the Raft
   algorithm, taking into account as well the distribution policies explained during the presentation.
 - We use a fixed number of Ranges with a fixed size of keys. In the real implementation ranges grow and split, or
