@@ -1,0 +1,10 @@
+//
+// Created by armandouv on 30/12/22.
+//
+
+#ifndef CRDB_REPLICATION_LAYER_RANGE_H
+#define CRDB_REPLICATION_LAYER_RANGE_H
+
+
+
+#endif //CRDB_REPLICATION_LAYER_RANGE_H
