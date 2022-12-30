@@ -19,16 +19,30 @@ struct RangeDescriptor {
     std::set<int> replicas_id;
 };
 
+void print_range_descriptor(const RangeDescriptor &descriptor) {
+    cout << "RANGE DESCRIPTOR" << endl;
+    cout << "id: " << descriptor.id << endl;
+    cout << "start: " << descriptor.start << endl;
+    cout << "end: " << descriptor.end << endl;
+    cout << "leaseholder_id: " << descriptor.leaseholder_id << endl;
+    cout << "leader_id: " << descriptor.leader_id << endl;
+    cout << "replicas_id: { ";
+    for (auto id: descriptor.replicas_id) cout << id << " ";
+    cout << "}" << endl;
+}
+
+
 class Node {
     int id_;
     map<int, RangeDescriptor> interval_start_to_range_descriptor_;
     // Ordered underlying key-value store (simulating RocksDB)
     map<int, int> key_value_store_;
-    map<int, Node*> nodes_;
+    map<int, Node *> nodes_;
     vector<Command> log_;
 
 
     int ApplyCreate(int key, int value) {
+        cout << "Applying command CREATE in node " << id_ << endl;
         if (key_value_store_.contains(key)) {
             cout << "Key " + to_string(key) + " already exists in this node" << endl;
             return -1;
@@ -39,6 +53,7 @@ class Node {
     }
 
     int ApplyRead(int key) {
+        cout << "Applying command READ in node " << id_ << endl;
         if (!key_value_store_.contains(key)) {
             cout << "Key " + to_string(key) + " does not exist in this node" << endl;
             return -1;
@@ -47,6 +62,7 @@ class Node {
     }
 
     int ApplyUpdate(int key, int new_value) {
+        cout << "Applying command UPDATE in node " << id_ << endl;
         if (!key_value_store_.contains(key)) {
             cout << "Key " + to_string(key) + " does not exist in this node" << endl;
             return -1;
@@ -57,6 +73,7 @@ class Node {
     }
 
     int ApplyDelete(int key) {
+        cout << "Applying command DELETE in node " << id_ << endl;
         if (!key_value_store_.contains(key)) {
             cout << "Key " + to_string(key) + " does not exist in this node" << endl;
             return -1;
@@ -126,22 +143,27 @@ class Node {
         }
 
         // If it's a read, we can just return whatever the leader returns;
-        if (command.type == READ) return ApplyCommand(command, range_descriptor);
+        if (command.type == READ) {
+            cout << "Leader " << id_ << " will apply READ without replication" << endl;
+            return ApplyCommand(command, range_descriptor);
+        }
 
         // This is where most of the replication layer logic is.
 
         // Replicate command to other nodes in the Range's Raft group, and wait until all have finished. In the real
         // implementation, we would only wait for the majority of nodes to replicate the command.
+        cout << "Starting pushing command to logs..." << endl << "Leader " << id_ << " goes first" << endl;
         PushCommandToLog(command);
-        for (auto replica_id : range_descriptor.replicas_id) {
+        for (auto replica_id: range_descriptor.replicas_id) {
             if (replica_id == id_) continue; // We've already added to the leader's log
             nodes_[replica_id]->PushCommandToLog(command);
         }
 
-        // Once all replicas have replicated the command, we are ready to commit. Thus, we sent a commit message to all
+        // Once all replicas have replicated the command, we are ready to commit. Thus, we send a commit message to all
         // of them so that the command is actually applied in the key-value store. Here, the commit message is simulated
         // by the ApplyCommand method, which "receives" the commit message and applies the actual changes.
 
+        cout << "Starting applying command in replicas..." << endl << "Leader " << id_ << " goes first" << endl;
         int result = ApplyCommand(command, range_descriptor);
         // If we detect an error, we return it instead of continuing doing work. As a consequence, logs can have
         // uncommitted commands.
@@ -164,6 +186,7 @@ class Node {
             return -1;
         }
 
+        cout << "Leaseholder " << id_ << " proposed command to leader with id = " << range_descriptor.leader_id << endl;
         return nodes_[range_descriptor.leader_id]->ProcessCommand(command, range_descriptor);
     }
 
@@ -177,12 +200,13 @@ public:
     }
 
     int SendCommand(const Command &command) {
-        // Check it the key is inside a range that belongs to this Node
+        cout << "Node " << id_ << " just received a command using key " << command.key << endl;
         if (interval_start_to_range_descriptor_.empty()) {
             cout << "Lookup table for ranges is empty" << endl;
             return -1;
         }
 
+        // Get the Range to which the key belongs in O(log n)
         auto it = interval_start_to_range_descriptor_.upper_bound(command.key);
         if (it == interval_start_to_range_descriptor_.begin()) {
             cout << "No range assigned for this value" << endl;
@@ -193,9 +217,15 @@ public:
         auto range_descriptor = it->second;
 
         // This is the leaseholder for the appropriate Range
-        if (range_descriptor.leaseholder_id == id_) return SendCommandToLeader(command, range_descriptor);
+        if (range_descriptor.leaseholder_id == id_) {
+            cout << "Node " << id_ << " is the appropriate leaseholder for range:" << endl;
+            print_range_descriptor(range_descriptor);
+            return SendCommandToLeader(command, range_descriptor);
+        }
 
         // Forward the Command to the leaseholder
+        cout << "Node " << id_ << " forwarded command to leaseholder with id = " << range_descriptor.leaseholder_id
+             << endl;
         return nodes_[range_descriptor.leaseholder_id]->SendCommand(command);
     }
 
