@@ -1,5 +1,7 @@
 # Simulation of CockroachDB's distribution layer
 
+**Paper presentation in Spanish: https://youtu.be/72r-cfauyjU**
+
 The distribution layer is responsible for distributing data across the nodes in a cluster. It consists of a range-based
 distributed key-value store, where each Range is a contiguous portion of the key space. Each Range is stored on at least
 3 nodes in the cluster, and the distribution layer is responsible for managing the placement and movement of ranges
