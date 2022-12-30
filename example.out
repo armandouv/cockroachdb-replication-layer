@@ -1,0 +1,842 @@
+RANGE DESCRIPTOR
+id: 0
+start: 0
+end: 9
+leaseholder_id: 3
+leader_id: 2
+replicas_id: { 2 3 4 }
+
+RANGE DESCRIPTOR
+id: 1
+start: 10
+end: 19
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+
+RANGE DESCRIPTOR
+id: 2
+start: 20
+end: 29
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+
+RANGE DESCRIPTOR
+id: 3
+start: 30
+end: 39
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+
+RANGE DESCRIPTOR
+id: 4
+start: 40
+end: 49
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+
+RANGE DESCRIPTOR
+id: 5
+start: 50
+end: 59
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+
+RANGE DESCRIPTOR
+id: 6
+start: 60
+end: 69
+leaseholder_id: 2
+leader_id: 1
+replicas_id: { 1 2 3 }
+
+RANGE DESCRIPTOR
+id: 7
+start: 70
+end: 79
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+
+RANGE DESCRIPTOR
+id: 8
+start: 80
+end: 89
+leaseholder_id: 3
+leader_id: 2
+replicas_id: { 2 3 4 }
+
+RANGE DESCRIPTOR
+id: 9
+start: 90
+end: 100
+leaseholder_id: 3
+leader_id: 2
+replicas_id: { 2 3 4 }
+
+STARTING INSERTION OF PAIR (1, 223)
+Node 4 just received a command using key 1
+Node 4 forwarded command to leaseholder with id = 3
+Node 3 just received a command using key 1
+Node 3 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 0
+start: 0
+end: 9
+leaseholder_id: 3
+leader_id: 2
+replicas_id: { 2 3 4 }
+Leaseholder 3 proposed command to leader with id = 2
+Starting pushing command to logs...
+Leader 2 goes first
+Command just pushed to Log of Node 2
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 2 goes first
+Applying command CREATE in node 2
+Applying command CREATE in node 3
+Applying command CREATE in node 4
+INSERTION SUCCESSFUL
+
+
+STARTING INSERTION OF PAIR (10, 65422)
+Node 1 just received a command using key 10
+Node 1 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 10
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 1
+start: 10
+end: 19
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command CREATE in node 3
+Applying command CREATE in node 0
+Applying command CREATE in node 4
+INSERTION SUCCESSFUL
+
+
+STARTING INSERTION OF PAIR (20, 2652)
+Node 1 just received a command using key 20
+Node 1 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 20
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 2
+start: 20
+end: 29
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command CREATE in node 3
+Applying command CREATE in node 0
+Applying command CREATE in node 4
+INSERTION SUCCESSFUL
+
+
+STARTING INSERTION OF PAIR (30, 2542)
+Node 2 just received a command using key 30
+Node 2 forwarded command to leaseholder with id = 1
+Node 1 just received a command using key 30
+Node 1 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 3
+start: 30
+end: 39
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+Leaseholder 1 proposed command to leader with id = 0
+Starting pushing command to logs...
+Leader 0 goes first
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 1
+Command just pushed to Log of Node 2
+Starting applying command in replicas...
+Leader 0 goes first
+Applying command CREATE in node 0
+Applying command CREATE in node 1
+Applying command CREATE in node 2
+INSERTION SUCCESSFUL
+
+
+STARTING INSERTION OF PAIR (40, 652)
+Node 4 just received a command using key 40
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 4
+start: 40
+end: 49
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command CREATE in node 3
+Applying command CREATE in node 0
+Applying command CREATE in node 4
+INSERTION SUCCESSFUL
+
+
+STARTING INSERTION OF PAIR (70, 265)
+Node 2 just received a command using key 70
+Node 2 forwarded command to leaseholder with id = 1
+Node 1 just received a command using key 70
+Node 1 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 7
+start: 70
+end: 79
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+Leaseholder 1 proposed command to leader with id = 0
+Starting pushing command to logs...
+Leader 0 goes first
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 1
+Command just pushed to Log of Node 2
+Starting applying command in replicas...
+Leader 0 goes first
+Applying command CREATE in node 0
+Applying command CREATE in node 1
+Applying command CREATE in node 2
+INSERTION SUCCESSFUL
+
+
+STARTING INSERTION OF PAIR (50, 298)
+Node 3 just received a command using key 50
+Node 3 forwarded command to leaseholder with id = 1
+Node 1 just received a command using key 50
+Node 1 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 5
+start: 50
+end: 59
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+Leaseholder 1 proposed command to leader with id = 0
+Starting pushing command to logs...
+Leader 0 goes first
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 1
+Command just pushed to Log of Node 2
+Starting applying command in replicas...
+Leader 0 goes first
+Applying command CREATE in node 0
+Applying command CREATE in node 1
+Applying command CREATE in node 2
+INSERTION SUCCESSFUL
+
+
+STARTING INSERTION OF PAIR (1000, 265)
+Key must be between 0 and MAX_KEY
+INSERTION FAILED
+
+
+STARTING INSERTION OF PAIR (-1, 298)
+Key and value must be both nonnegative
+INSERTION FAILED
+
+
+Node with ID = 0
+Log: [ ]
+Key-Value store: [ { 10, 65422 }, { 20, 2652 }, { 30, 2542 }, { 40, 652 }, { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 1
+Log: [ ]
+Key-Value store: [ { 30, 2542 }, { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 2
+Log: [ ]
+Key-Value store: [ { 1, 223 }, { 30, 2542 }, { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 3
+Log: [ ]
+Key-Value store: [ { 1, 223 }, { 10, 65422 }, { 20, 2652 }, { 40, 652 }, ]
+
+
+Node with ID = 4
+Log: [ ]
+Key-Value store: [ { 1, 223 }, { 10, 65422 }, { 20, 2652 }, { 40, 652 }, ]
+
+
+STARTING GET OF KEY 1
+Node 4 just received a command using key 1
+Node 4 forwarded command to leaseholder with id = 3
+Node 3 just received a command using key 1
+Node 3 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 0
+start: 0
+end: 9
+leaseholder_id: 3
+leader_id: 2
+replicas_id: { 2 3 4 }
+Leaseholder 3 proposed command to leader with id = 2
+Leader 2 will apply READ without replication
+Applying command READ in node 2
+GET SUCCESSFUL (VALUE = 223)
+
+
+STARTING GET OF KEY 10
+Node 0 just received a command using key 10
+Node 0 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 10
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 1
+start: 10
+end: 19
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Leader 3 will apply READ without replication
+Applying command READ in node 3
+GET SUCCESSFUL (VALUE = 65422)
+
+
+STARTING GET OF KEY 20
+Node 3 just received a command using key 20
+Node 3 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 20
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 2
+start: 20
+end: 29
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Leader 3 will apply READ without replication
+Applying command READ in node 3
+GET SUCCESSFUL (VALUE = 2652)
+
+
+STARTING GET OF KEY 30
+Node 3 just received a command using key 30
+Node 3 forwarded command to leaseholder with id = 1
+Node 1 just received a command using key 30
+Node 1 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 3
+start: 30
+end: 39
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+Leaseholder 1 proposed command to leader with id = 0
+Leader 0 will apply READ without replication
+Applying command READ in node 0
+GET SUCCESSFUL (VALUE = 2542)
+
+
+STARTING GET OF KEY 40
+Node 1 just received a command using key 40
+Node 1 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 40
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 4
+start: 40
+end: 49
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Leader 3 will apply READ without replication
+Applying command READ in node 3
+GET SUCCESSFUL (VALUE = 652)
+
+
+STARTING GET OF KEY 31
+Node 1 just received a command using key 31
+Node 1 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 3
+start: 30
+end: 39
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+Leaseholder 1 proposed command to leader with id = 0
+Leader 0 will apply READ without replication
+Applying command READ in node 0
+Key 31 does not exist in this node
+GET FAILED
+
+
+STARTING GET OF KEY 41
+Node 0 just received a command using key 41
+Node 0 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 41
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 4
+start: 40
+end: 49
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Leader 3 will apply READ without replication
+Applying command READ in node 3
+Key 41 does not exist in this node
+GET FAILED
+
+
+Node with ID = 0
+Log: [ ]
+Key-Value store: [ { 10, 65422 }, { 20, 2652 }, { 30, 2542 }, { 40, 652 }, { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 1
+Log: [ ]
+Key-Value store: [ { 30, 2542 }, { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 2
+Log: [ ]
+Key-Value store: [ { 1, 223 }, { 30, 2542 }, { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 3
+Log: [ ]
+Key-Value store: [ { 1, 223 }, { 10, 65422 }, { 20, 2652 }, { 40, 652 }, ]
+
+
+Node with ID = 4
+Log: [ ]
+Key-Value store: [ { 1, 223 }, { 10, 65422 }, { 20, 2652 }, { 40, 652 }, ]
+
+
+STARTING UPDATE USING PAIR (1, 2223)
+Node 0 just received a command using key 1
+Node 0 forwarded command to leaseholder with id = 3
+Node 3 just received a command using key 1
+Node 3 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 0
+start: 0
+end: 9
+leaseholder_id: 3
+leader_id: 2
+replicas_id: { 2 3 4 }
+Leaseholder 3 proposed command to leader with id = 2
+Starting pushing command to logs...
+Leader 2 goes first
+Command just pushed to Log of Node 2
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 2 goes first
+Applying command UPDATE in node 2
+Applying command UPDATE in node 3
+Applying command UPDATE in node 4
+UPDATE SUCCESSFUL
+
+
+STARTING UPDATE USING PAIR (10, 654224)
+Node 0 just received a command using key 10
+Node 0 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 10
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 1
+start: 10
+end: 19
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command UPDATE in node 3
+Applying command UPDATE in node 0
+Applying command UPDATE in node 4
+UPDATE SUCCESSFUL
+
+
+STARTING UPDATE USING PAIR (20, 26352)
+Node 4 just received a command using key 20
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 2
+start: 20
+end: 29
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command UPDATE in node 3
+Applying command UPDATE in node 0
+Applying command UPDATE in node 4
+UPDATE SUCCESSFUL
+
+
+STARTING UPDATE USING PAIR (30, 25842)
+Node 3 just received a command using key 30
+Node 3 forwarded command to leaseholder with id = 1
+Node 1 just received a command using key 30
+Node 1 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 3
+start: 30
+end: 39
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+Leaseholder 1 proposed command to leader with id = 0
+Starting pushing command to logs...
+Leader 0 goes first
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 1
+Command just pushed to Log of Node 2
+Starting applying command in replicas...
+Leader 0 goes first
+Applying command UPDATE in node 0
+Applying command UPDATE in node 1
+Applying command UPDATE in node 2
+UPDATE SUCCESSFUL
+
+
+STARTING UPDATE USING PAIR (40, 8652)
+Node 4 just received a command using key 40
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 4
+start: 40
+end: 49
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command UPDATE in node 3
+Applying command UPDATE in node 0
+Applying command UPDATE in node 4
+UPDATE SUCCESSFUL
+
+
+STARTING UPDATE USING PAIR (32, 25842)
+Node 1 just received a command using key 32
+Node 1 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 3
+start: 30
+end: 39
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+Leaseholder 1 proposed command to leader with id = 0
+Starting pushing command to logs...
+Leader 0 goes first
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 1
+Command just pushed to Log of Node 2
+Starting applying command in replicas...
+Leader 0 goes first
+Applying command UPDATE in node 0
+Key 32 does not exist in this node
+UPDATE FAILED
+
+
+STARTING UPDATE USING PAIR (49, 8652)
+Node 1 just received a command using key 49
+Node 1 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 49
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 4
+start: 40
+end: 49
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command UPDATE in node 3
+Key 49 does not exist in this node
+UPDATE FAILED
+
+
+Node with ID = 0
+Log: [ { type: 2, key: 49, value: 8652 }, ]
+Key-Value store: [ { 10, 654224 }, { 20, 26352 }, { 30, 25842 }, { 40, 8652 }, { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 1
+Log: [ { type: 2, key: 32, value: 25842 }, ]
+Key-Value store: [ { 30, 25842 }, { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 2
+Log: [ { type: 2, key: 32, value: 25842 }, ]
+Key-Value store: [ { 1, 2223 }, { 30, 25842 }, { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 3
+Log: [ ]
+Key-Value store: [ { 1, 2223 }, { 10, 654224 }, { 20, 26352 }, { 40, 8652 }, ]
+
+
+Node with ID = 4
+Log: [ { type: 2, key: 49, value: 8652 }, ]
+Key-Value store: [ { 1, 2223 }, { 10, 654224 }, { 20, 26352 }, { 40, 8652 }, ]
+
+
+STARTING DELETION OF KEY 1
+Node 3 just received a command using key 1
+Node 3 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 0
+start: 0
+end: 9
+leaseholder_id: 3
+leader_id: 2
+replicas_id: { 2 3 4 }
+Leaseholder 3 proposed command to leader with id = 2
+Starting pushing command to logs...
+Leader 2 goes first
+Command just pushed to Log of Node 2
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 2 goes first
+Applying command DELETE in node 2
+Applying command DELETE in node 3
+Applying command DELETE in node 4
+DELETION SUCCESSFUL
+
+
+STARTING DELETION OF KEY 10
+Node 2 just received a command using key 10
+Node 2 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 10
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 1
+start: 10
+end: 19
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command DELETE in node 3
+Applying command DELETE in node 0
+Applying command DELETE in node 4
+DELETION SUCCESSFUL
+
+
+STARTING DELETION OF KEY 20
+Node 4 just received a command using key 20
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 2
+start: 20
+end: 29
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command DELETE in node 3
+Applying command DELETE in node 0
+Applying command DELETE in node 4
+DELETION SUCCESSFUL
+
+
+STARTING DELETION OF KEY 30
+Node 0 just received a command using key 30
+Node 0 forwarded command to leaseholder with id = 1
+Node 1 just received a command using key 30
+Node 1 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 3
+start: 30
+end: 39
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+Leaseholder 1 proposed command to leader with id = 0
+Starting pushing command to logs...
+Leader 0 goes first
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 1
+Command just pushed to Log of Node 2
+Starting applying command in replicas...
+Leader 0 goes first
+Applying command DELETE in node 0
+Applying command DELETE in node 1
+Applying command DELETE in node 2
+DELETION SUCCESSFUL
+
+
+STARTING DELETION OF KEY 40
+Node 0 just received a command using key 40
+Node 0 forwarded command to leaseholder with id = 4
+Node 4 just received a command using key 40
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 4
+start: 40
+end: 49
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command DELETE in node 3
+Applying command DELETE in node 0
+Applying command DELETE in node 4
+DELETION SUCCESSFUL
+
+
+STARTING DELETION OF KEY 31
+Node 1 just received a command using key 31
+Node 1 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 3
+start: 30
+end: 39
+leaseholder_id: 1
+leader_id: 0
+replicas_id: { 0 1 2 }
+Leaseholder 1 proposed command to leader with id = 0
+Starting pushing command to logs...
+Leader 0 goes first
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 1
+Command just pushed to Log of Node 2
+Starting applying command in replicas...
+Leader 0 goes first
+Applying command DELETE in node 0
+Key 31 does not exist in this node
+DELETION FAILED
+
+
+STARTING DELETION OF KEY 49
+Node 4 just received a command using key 49
+Node 4 is the appropriate leaseholder for range:
+RANGE DESCRIPTOR
+id: 4
+start: 40
+end: 49
+leaseholder_id: 4
+leader_id: 3
+replicas_id: { 0 3 4 }
+Leaseholder 4 proposed command to leader with id = 3
+Starting pushing command to logs...
+Leader 3 goes first
+Command just pushed to Log of Node 3
+Command just pushed to Log of Node 0
+Command just pushed to Log of Node 4
+Starting applying command in replicas...
+Leader 3 goes first
+Applying command DELETE in node 3
+Key 49 does not exist in this node
+DELETION FAILED
+
+
+Node with ID = 0
+Log: [ { type: 2, key: 49, value: 8652 }, { type: 3, key: 49, value: 0 }, ]
+Key-Value store: [ { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 1
+Log: [ { type: 2, key: 32, value: 25842 }, { type: 3, key: 31, value: 0 }, ]
+Key-Value store: [ { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 2
+Log: [ { type: 2, key: 32, value: 25842 }, { type: 3, key: 31, value: 0 }, ]
+Key-Value store: [ { 50, 298 }, { 70, 265 }, ]
+
+
+Node with ID = 3
+Log: [ ]
+Key-Value store: [ ]
+
+
+Node with ID = 4
+Log: [ { type: 2, key: 49, value: 8652 }, { type: 3, key: 49, value: 0 }, ]
+Key-Value store: [ ]
+
+
